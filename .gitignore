@@ -1,0 +1,24 @@
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Environment variables (Crucial for keeping your Groq API key safe!)
+.env
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# App Data (Keep your personal journaling and moods private)
+*.json
+streak.json
+moods.json
+journal.json
+
+# Temporary Audio files
+response.mp3
+
+# Streamlit specific
+.streamlit/
