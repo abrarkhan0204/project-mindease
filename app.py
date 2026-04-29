@@ -583,9 +583,10 @@ def get_milestone(streak):
 
 @st.cache_resource
 def get_client():
-    key = os.getenv("GROQ_API_KEY")
+    # Check Streamlit secrets first, then fall back to .env environment variables
+    key = st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY")
     if not key:
-        st.error("❌ GROQ_API_KEY missing in .env")
+        st.error("❌ GROQ_API_KEY missing. Please add it to your .env file or Streamlit Cloud Secrets.")
         st.stop()
     return Groq(api_key=key)
 
